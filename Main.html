@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="Shift-JIS">
+	<title>Trism</title>
+	<link href="Trism_SmartSlimes.css" rel="stylesheet" type="text/css" ></link>
+	<script type="text/javascript" src="TrismMain.js" ></script>
+	<script type="text/javascript" src="Trism_Slime.js" ></script>
+	<script type="text/javascript" src="Trism_Field.js" ></script>
+	<script type="text/javascript" src="Trism_Fight.js" ></script>
+	<script type="text/javascript" src="Trism_KeyListener.js" ></script>
+	<script type="text/javascript" src="Trism_Messaging.js" ></script>
+	<script type="text/javascript" src="Trism_CanvasConsole.js" ></script>
+	<script type="text/javascript" src="Trism_CharactorInitializer.js" ></script>
+	<script type="text/javascript" src="Trism_Resources.js" ></script>
+	<script type="text/javascript" src="Trism_LevelUp.js" ></script>
+</head>
+<body onload="Trism.Init('Field', 'ShowYou', 'Console');" >
+	<div class="all">
+		<canvas id="Console" Height="100" Width="850"></canvas>
+		<canvas id="Field" Width="180" Height="180" ></canvas>
+		<canvas id="ShowYou" width="180" height="360" ></canvas>
+		<div id="init"><canvas name="canvas" width="720" height="320" ></canvas></div>
+	</div>
+</body>
+</html>
