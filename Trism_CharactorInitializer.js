@@ -5,7 +5,7 @@ Trism.CharactorInitializer = function(id, callback) {
 	var context = canvas.getContext('2d');
 	context.clearAll = function() { context.clearRect(0,0, canvas.width, canvas.height); };
 
-	var range = { Min: 2, Max: 10 };
+	var range = { Min: 12, Max: 30 };
 	var choice = [
 		Trism.createRandomSlime(range),
 		Trism.createRandomSlime(range),
