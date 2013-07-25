@@ -2,11 +2,11 @@ Trism.Slime = function(r, g, b) {
 	this.R = r;
 	this.G = g;
 	this.B = b;
-	this.rgb = function(toDark) {
+	this.rgb = function(lvl) {
+		var pow = Math.pow(0.92, lvl*lvl);
 		return "#" + toTwoChar(this.R) + toTwoChar(this.G) + toTwoChar(this.B);
 		function toTwoChar(v) {
-			var hexa = (v + 1) * 8 - 1;
-			if (toDark) hexa = Math.floor(hexa * 0.6);
+			var hexa = Math.floor(((v + 1) * 8 - 1) * pow);
 			return ("00" + hexa.toString(16)).slice(-2);
 		}
 	};
@@ -16,17 +16,18 @@ Trism.Slime = function(r, g, b) {
 			&& this.G == 31
 			&& this.B == 31;
 	};
-	this.drawAt = function(context, x, y, width, heightLevel, shadow) {
+	this.drawAt = function(context, x, y, width, heightLevel, lvl) {
+		lvl = (lvl == undefined ? 2 : lvl);
 		context.beginPath();
 		context.moveTo(x - width, y);
-		context.fillStyle = this.rgb(! shadow);
+		context.fillStyle = this.rgb(lvl);
 		context.bezierCurveTo(x - width, y + heightLevel, x + width, y + heightLevel, x + width, y);
 		context.bezierCurveTo(x + width, y - heightLevel * 1.5, x - width, y - heightLevel * 1.5, x - width, y);
 		context.fill();
-		if (! shadow) {
-			var d = 0.95;
+		if (lvl > 0) {
+			var d = .85;
 			var dx = width * (1 - d);
-			this.drawAt(context, x - dx, y - dx, width * d, heightLevel * d, true);
+			this.drawAt(context, x - dx / 3, y - dx / 3, width * d, heightLevel * d, lvl - 1);
 		}
 	}
 }

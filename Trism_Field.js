@@ -118,7 +118,7 @@ Trism.Field = function(canvas, contextYou, sHero) {
 			} else {
 				context.strokeStyle = "#000000";
 			}
-			context.fillStyle = slime.rgb();
+			context.fillStyle = slime.rgb(0);
 			context.arc((1 + x) * SIZE_OF_ICON , (1 + y) * SIZE_OF_ICON , SIZE_OF_ICON / 2 - 2, 0,7)
 		} else {
 			context.clearRect((x + 0.5) * SIZE_OF_ICON , (y + 0.5) * SIZE_OF_ICON , SIZE_OF_ICON , SIZE_OF_ICON );
