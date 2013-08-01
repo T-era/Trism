@@ -11,6 +11,7 @@
 		this.SpecialMessage = " ”æ‚ê‚ğ–ü‚·‚½‚ß‚É•°‚«‰Î‚É‚ ‚½‚ë‚¤‚Æ‚µ‚½‚ç\n‚â‚¯‚Ç‚ğ‚µ‚½I\n......‰Î‚Ì–‚—Í‚ªã‚ª‚Á‚½!!";
 		this.event = function(slime) {
 			slime.R ++;
+			Trism.rHighlight(slime);
 		}
 	}
 	function StatusUpG() {
@@ -18,6 +19,7 @@
 		this.SpecialMessage = " í‚¢‚Ì”æ‚ê‚©A•—×‚ğ‚Ğ‚¢‚Ä‚µ‚Ü‚Á‚½‚æ‚¤‚¾\n......•—‚Ì–‚—Í‚ªã‚ª‚Á‚½‚İ‚½‚¢!!";
 		this.event = function(slime) {
 			slime.G ++;
+			Trism.gHighlight(slime);
 		}
 	}
 	function StatusUpB() {
@@ -25,6 +27,7 @@
 		this.SpecialMessage = "‰J~‚Á‚Ä…‚Ì–‚—Í‚ªã‚ª‚éB";
 		this.event = function(slime) {
 			slime.B ++;
+			Trism.bHighlight(slime);
 		}
 	}
 	StatusUpR.prototype = new StatusUp();
@@ -40,6 +43,7 @@
 			slime.R ++;
 			slime.G ++;
 			slime.B ++;
+			Trism.allHighlight(slime);
 		}
 	}
 

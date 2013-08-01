@@ -15,10 +15,25 @@ Trism.Init = function(idField, idYou, idConsole) {
 
 Trism.setDomEvent = function(canvas) {
 	var context = canvas.getContext('2d');
-	canvas.__context = context;
-	context.clearAll = function() { this.clearRect(0,0,canvas.width, canvas.height); };
 	var sizeX = 5;
 	var sizeY = 40;
+	var statusHighlight = new Trism.HighlightEffect(canvas, context, sizeY * 2);
+
+	Trism.rHighlight = function(slime) {
+		statusHighlight.kickEffect(sizeX * 32, 220, sizeY, function() { context.ShowStatus(slime); });
+	}
+	Trism.gHighlight = function(slime) {
+		statusHighlight.kickEffect(sizeX * 32, 260, sizeY, function() { context.ShowStatus(slime); });
+	}
+	Trism.bHighlight = function(slime) {
+		statusHighlight.kickEffect(sizeX * 32, 300, sizeY, function() { context.ShowStatus(slime); });
+	}
+	Trism.allHighlight = function(slime) {
+		statusHighlight.kickEffect(sizeX * 32, 220, sizeY * 3, function() { context.ShowStatus(slime); });
+	}
+
+	canvas.__context = context;
+	context.clearAll = function() { this.clearRect(0,0,canvas.width, canvas.height); };
 	context.font = "20px Courier"
 
 	context.ShowStatus = function(slime) {
